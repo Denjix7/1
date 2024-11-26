@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Shop</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="header__wrapper">
+          <div class="header__submenu">
+            <button class="btn">ЖЕНСКОЕ</button>
+            <button class="btn">МУЖСКОЕ</button>
+          </div>
+          <div class="logo">
+            <a href="#"><img src="./img/logo.png" alt="logo" /></a>
+          </div>
+          <nav class="header__icon">
+            <ul class="header__list">
+              <li class="header__item">
+                <a href="#" class="header__link"
+                  ><img src="./img/icon/search.svg" alt=""
+                /></a>
+              </li>
+              <li class="header__item">
+                <a href="#" class="header__link"
+                  ><img src="./img/icon/user.svg" alt=""
+                /></a>
+              </li>
+              <li class="header__item">
+                <a href="#" class="header__link"
+                  ><img src="./img/icon/likes.svg" alt=""
+                /></a>
+              </li>
+              <li class="header__item">
+                <a href="#" class="header__link"
+                  ><img src="./img/icon/bugs.svg" alt=""
+                /></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="header__content">
+          <h1 class="tittle">Одевайся и будешь одетым!</h1>
+          <p class="header__content-text">
+            "Одевайся и будь одет — каждый день в твоем стиле! Уверенность
+            начинается с правильного выбора одежды. Подчеркни свою
+            индивидуальность и сияй в любой ситуации!"
+          </p>
+        </div>
+      </header>
+    </div>
+    <main>
+      <div class="container">
+        <section class="about">
+          <h2 class="subtittle">О компание Den&ko</h2>
+          <div class="about__wrapper">
+            <div class="about__row">
+              <div class="about__content">
+                <p>
+                  Добро пожаловать в наш магазин одежды! Мы — команда увлеченных
+                  модой профессионалов, которые стремятся предложить вам самые
+                  стильные и качественные вещи. Наша цель — помочь каждому найти
+                  свой уникальный стиль, который подчеркнет индивидуальность и
+                  уверенность.
+                </p>
+                <p>
+                  Мы внимательно подбираем ассортимент, чтобы предложить
+                  разнообразные коллекции, соответствующие последним трендам. В
+                  нашем магазине вы найдете одежду для любых случаев: от
+                  повседневной до вечерней, от спортивной до деловой. Мы ценим
+                  качество и комфорт, поэтому работаем только с проверенными
+                  брендами и производителями.
+                </p>
+              </div>
+              <div class="about__img">
+                <img src="./img/shop1.jpg" alt="girl shop" />
+              </div>
+            </div>
+            <div class="about__row">
+              <div class="about__img">
+                <img src="./img/shop2.jpg" alt="girl shop" />
+              </div>
+              <div class="about__row1">
+                <div class="about__content">
+                  <p>
+                    Мы также заботимся о наших клиентах и всегда готовы
+                    предложить персонализированный подход. Наша команда с
+                    радостью поможет вам с выбором, ответит на любые вопросы и
+                    предложит советы по стилю.
+                  </p>
+                  <p>
+                    Приходите к нам, и мы сделаем все возможное, чтобы ваш
+                    шопинг стал приятным и запоминающимся!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="new-price">
+          <h2 class="subtittle">Новая коллекция</h2>
+          <div class="new-price__cards">
+            <div id="productList"></div>
+          </div>
+          <form id="addProductForm">
+            <input
+              type="text"
+              id="productName"
+              placeholder="Название товара"
+              required
+            />
+            <input
+              type="number"
+              id="productPrice"
+              placeholder="Цена"
+              required
+            />
+            <textarea
+              id="productDescription"
+              placeholder="Описание"
+              required
+            ></textarea>
+            <input
+              type="text"
+              id="productCategory"
+              placeholder="Категория"
+              required
+            />
+            <button type="submit">Добавить товар</button>
+          </form>
+        </section>
+      </div>
+    </main>
+    <div class="container">
+      <footer class="footer">
+        <div class="logo">
+          <a href="#"><img src="./img/logo.png" alt="logo" /></a>
+        </div>
+        <nav class="footer__nav">
+          <ul class="footer__list">
+            <li class="footer__item">
+              <a class="footer__link" href="#">главная</a>
+            </li>
+            <li class="footer__item">
+              <a class="footer__link" href="#">В корзину</a>
+            </li>
+            <li class="footer__item">
+              <a class="footer__link" href="#">женское</a>
+            </li>
+            <li class="footer__item">
+              <a class="footer__link" href="#">мужское</a>
+            </li>
+            <li class="footer__item">
+              <a class="footer__link" href="#">новости</a>
+            </li>
+            <li class="footer__item">
+              <a class="footer__link" href="#">контакты</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="messengers">
+          <a href="#"><img src="./img/icon/vk.svg" alt="vk" /></a>
+          <a href="#"><img src="./img/icon/insta.svg" alt="insta" /></a>
+        </div>
+      </footer>
+    </div>
+    <script src="./sccripts.js"></script>
+  </body>
+</html>

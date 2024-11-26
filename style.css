@@ -1,0 +1,229 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  background: rgb(242, 242, 242);
+  color: #252525;
+}
+
+img {
+  display: inline-block;
+}
+
+a {
+  color: #252525;
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  border-radius: 3rem;
+  cursor: pointer;
+  transition: all 0.5ms;
+}
+
+.container {
+  max-width: 144rem;
+  padding: 0 1rem;
+}
+
+.header {
+  background-image: url(./img/bg.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.header__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+}
+
+.header__submenu {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.btn {
+  font-size: 1.6rem;
+  padding: 1.7rem 1.2rem;
+  background-color: transparent;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  background-color: rgb(223, 34, 65);
+  color: #f1d62a;
+}
+
+.logo img {
+  width: 7.5rem;
+  height: 7.5rem;
+}
+
+.header__list,
+.footer__list {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.header__content {
+  display: flex;
+  flex-direction: column;
+  gap: 41.5rem;
+  margin-top: 25rem;
+}
+
+.tittle {
+  text-align: center;
+  font-size: 4.5rem;
+  color: rgb(0, 0, 0);
+}
+
+.header__content-text {
+  max-width: 58rem;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.8rem;
+}
+
+/* секиця о нас  */
+
+.about {
+  margin-top: 15rem;
+}
+
+.about__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 17rem;
+}
+
+.about__row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 11.7rem;
+}
+
+.about__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4rem;
+  width: 58.4rem;
+  font-size: 1.8rem;
+}
+
+.about__img img {
+  width: 71rem;
+  height: 57.9rem;
+}
+
+/* секция new-price */
+
+.new-price {
+  margin-top: 15rem;
+}
+
+.subtittle {
+  font-size: 4rem;
+  margin-bottom: 7rem;
+  text-align: center;
+}
+
+#productList {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 33rem;
+}
+
+.delete-button {
+  padding: 1rem 1rem;
+}
+
+.delete-button:hover {
+  background-color: rgb(223, 34, 65);
+  color: #f1d62a;
+}
+.btn-price {
+  padding: 1rem 1rem;
+}
+
+.btn-price:hover {
+  background-color: rgb(223, 34, 65);
+  color: #f1d62a;
+}
+
+/* форма запроса */
+
+form {
+  margin-bottom: 20px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+}
+
+button {
+  display: flex;
+  margin: 0 auto;
+  font-size: 1.6rem;
+  padding: 1.7rem 1.2rem;
+  background-color: transparent;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 3rem;
+  cursor: pointer;
+  transition: all 0.5ms;
+}
+
+button:hover {
+  background-color: rgb(223, 34, 65);
+  color: #f1d62a;
+  background-color: #218838;
+}
+
+/* футер */
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  margin-top: 15rem;
+}
+
+.messengers {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  gap: 2.5rem;
+}
