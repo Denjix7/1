@@ -1,16 +1,7 @@
 const productList = document.getElementById("productList");
 const addProductForm = document.getElementById("addProductForm");
-
-async function fetchProducts() {
-  try {
-    const response = await fetch("https://fakestoreapi.com/products");
-    const products = await response.json();
-    displayProducts(products);
-  } catch (error) {
-    console.error("Ошибка при получении товаров:", error);
-    alert("Не удалось загрузить товары. Пожалуйста, попробуйте позже.");
-  }
-}
+const loudBtn = document.querySelector(".btn-more");
+const DelBtn = document.querySelector(".delete-button");
 
 function displayProducts(products) {
   productList.innerHTML = "";
@@ -20,13 +11,26 @@ function displayProducts(products) {
     productCard.innerHTML = `
             <h3>${product.title}</h3>
             <p>${product.description}</p>
-            <p>Цена: $${product.price}</p>
+            <p>Цена: ${product.price}</p>
             <p>Категория: ${product.category}</p>
-            <button class="delete-button" onclick="deleteProduct(${product.id})">Удалить товар</button>
+            <button class="delete-button">Удалить товар</button>
         `;
     productList.appendChild(productCard);
   });
 }
+
+async function fetchProducts() {
+  try {
+    const response = await fetch("https://fakestoreapi.com/products?limit=6");
+    const products = await response.json();
+    displayProducts(products);
+    return products;
+  } catch (error) {
+    console.error("Ошибка при получении товаров:", error);
+    alert("Не удалось загрузить товары. Пожалуйста, попробуйте позже.");
+  }
+}
+
 async function addProduct(event) {
   event.preventDefault();
   const productName = document.getElementById("productName").value;
@@ -42,7 +46,7 @@ async function addProduct(event) {
     category: productCategory,
   };
   try {
-    const response = await fetch("https://fakestoreapi.com/products", {
+    const response = await fetch("https://fakestoreapi.com/products/1", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -65,16 +69,15 @@ async function addProduct(event) {
 async function deleteProduct(productId) {
   try {
     const response = await fetch(
-      "https://fakestoreapi.com/products/${product.id}",
+      "https://fakestoreapi.com/products?limit=6/${product.id}",
       {
         method: "DELETE",
       }
     );
-
-    if (!response.ok) {
+    then((res) => res.json()).then((json) => console.log(json));
+    if (!res.ok) {
       throw new Error("Ошибка при удалении товара");
     }
-
     alert("Товар успешно удален!");
     fetchProducts();
   } catch (error) {
@@ -82,5 +85,8 @@ async function deleteProduct(productId) {
     alert("Не удалось удалить товар. Пожалуйста, попробуйте позже.");
   }
 }
+
+loudBtn.addEventListener("click", fetchProducts);
+DelBtn.addEventListener("click", deleteProduct);
 addProductForm.addEventListener("submit", addProduct);
 fetchProducts();
