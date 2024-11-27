@@ -2,10 +2,15 @@ const productList = document.getElementById("productList");
 const addProductForm = document.getElementById("addProductForm");
 const loudBtn = document.querySelector(".btn-more");
 
+const BtnCat1 = document.querySelector(".nav-btn--e");
+const BtnCat2 = document.querySelector(".nav-btn--j");
+const BtnCat3 = document.querySelector(".nav-btn--m");
+const BtnCat4 = document.querySelector(".nav-btn--w");
+
 let localProducts = [];
 
 function displayProducts(products) {
-  productList.innerHTML = ""; 
+  productList.innerHTML = "";
   products.forEach((product) => {
     const productCard = document.createElement("div");
     productCard.className = "product-card";
@@ -17,9 +22,11 @@ function displayProducts(products) {
       <button class="delete-button">Удалить товар</button>
     `;
 
-    productCard.querySelector(".delete-button").addEventListener("click", () => {
-      deleteProduct(product.id);
-    });
+    productCard
+      .querySelector(".delete-button")
+      .addEventListener("click", () => {
+        deleteProduct(product.id);
+      });
 
     productList.appendChild(productCard);
   });
@@ -43,7 +50,8 @@ async function addProduct(event) {
 
   const productName = document.getElementById("productName").value;
   const productPrice = document.getElementById("productPrice").value;
-  const productDescription = document.getElementById("productDescription").value;
+  const productDescription =
+    document.getElementById("productDescription").value;
   const productCategory = document.getElementById("productCategory").value;
 
   const newProduct = {
@@ -78,9 +86,12 @@ async function addProduct(event) {
 
 async function deleteProduct(productId) {
   try {
-    const response = await fetch(`https://fakestoreapi.com/products/${productId}`, {
-      method: "DELETE",
-    });
+    const response = await fetch(
+      `https://fakestoreapi.com/products/${productId}`,
+      {
+        method: "DELETE",
+      }
+    );
 
     if (!response.ok) throw new Error("Ошибка при удалении товара");
 
@@ -94,7 +105,90 @@ async function deleteProduct(productId) {
   }
 }
 
-loudBtn.addEventListener("click", fetchProducts);
+async function fetchProductsMore() {
+  try {
+    const response = await fetch("https://fakestoreapi.com/products?limit=10");
+    if (!response.ok) throw new Error("Ошибка загрузки данных");
+    const products = await response.json();
+    localProducts = products; // Сохраняем в локальную переменную
+    displayProducts(localProducts);
+  } catch (error) {
+    console.error("Ошибка при получении товаров:", error);
+    alert("Не удалось загрузить товары. Пожалуйста, попробуйте позже.");
+  }
+}
+
+loudBtn.addEventListener("click", fetchProductsMore);
 addProductForm.addEventListener("submit", addProduct);
 
 fetchProducts();
+
+// Работа с категориями
+
+async function fetchCat1() {
+  try {
+    const response = await fetch(
+      "https://fakestoreapi.com/products/category/electronics"
+    );
+    if (!response.ok) throw new Error("Ошибка загрузки данных");
+    const products = await response.json();
+    localProducts = products; // Сохраняем в локальную переменную
+    displayProducts(localProducts);
+  } catch (error) {
+    console.error("Ошибка при получении товаров:", error);
+    alert("Не удалось загрузить товары. Пожалуйста, попробуйте позже.");
+  }
+}
+
+BtnCat1.addEventListener("click", fetchCat1);
+
+async function fetchCat2() {
+  try {
+    const response = await fetch(
+      "https://fakestoreapi.com/products/category/jewelery"
+    );
+    if (!response.ok) throw new Error("Ошибка загрузки данных");
+    const products = await response.json();
+    localProducts = products; // Сохраняем в локальную переменную
+    displayProducts(localProducts);
+  } catch (error) {
+    console.error("Ошибка при получении товаров:", error);
+    alert("Не удалось загрузить товары. Пожалуйста, попробуйте позже.");
+  }
+}
+
+BtnCat2.addEventListener("click", fetchCat2);
+
+async function fetchCat3() {
+  try {
+    const response = await fetch(
+      "https://fakestoreapi.com/products/category/men's clothing"
+    );
+    if (!response.ok) throw new Error("Ошибка загрузки данных");
+    const products = await response.json();
+    localProducts = products; // Сохраняем в локальную переменную
+    displayProducts(localProducts);
+  } catch (error) {
+    console.error("Ошибка при получении товаров:", error);
+    alert("Не удалось загрузить товары. Пожалуйста, попробуйте позже.");
+  }
+}
+
+BtnCat3.addEventListener("click", fetchCat3);
+
+async function fetchCat4() {
+  try {
+    const response = await fetch(
+      "https://fakestoreapi.com/products/category/women's clothing"
+    );
+    if (!response.ok) throw new Error("Ошибка загрузки данных");
+    const products = await response.json();
+    localProducts = products; // Сохраняем в локальную переменную
+    displayProducts(localProducts);
+  } catch (error) {
+    console.error("Ошибка при получении товаров:", error);
+    alert("Не удалось загрузить товары. Пожалуйста, попробуйте позже.");
+  }
+}
+
+BtnCat4.addEventListener("click", fetchCat4);
